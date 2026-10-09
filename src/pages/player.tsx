@@ -13,6 +13,7 @@ import { Route, Station } from "../interfaces";
 import storage from "../storage";
 import logo from "../../images/logo.png"
 import { clearCurrentStation, currentStation, player, setCurrentStation } from "../playerController";
+import { showNowPlayingToast } from "../toast";
 
 type PLAYER_STATUS = 'PLAYING' | 'PAUSED' | 'BUFFERING';
 const smallButtonStyle: React.CSSProperties = {
@@ -59,6 +60,7 @@ export const Player: VFC<{ station: Station, route: Route }> = ({ station, route
         player.volume = storage.volume;
         player.load();
         player.play();
+        showNowPlayingToast(station);
     }
     const playButtonIcon = () => {
         switch (playerStatus) {

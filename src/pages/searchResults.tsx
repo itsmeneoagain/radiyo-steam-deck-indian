@@ -7,6 +7,8 @@ import {
     QuickAccessTab,
     Spinner,
     Navigation,
+    Dropdown,
+    DropdownOption,
 } from "decky-frontend-lib";
 import { useEffect, useState, VFC } from "react";
 import { MdHome, MdSearch, MdSmartToy } from "react-icons/md";
@@ -16,14 +18,22 @@ import { RadioPlayer } from "../RadioPlayer";
 import { TextFieldModal } from "../TextFieldModal";
 import { StationList } from "../stationList";
 
+const LANGUAGE_OPTIONS: DropdownOption[] = [
+    { data: undefined, label: 'All Languages' },
+    { data: 'hindi', label: 'Hindi' },
+    { data: 'tamil', label: 'Tamil' },
+    { data: 'telugu', label: 'Telugu' },
+];
+
 export const SearchResults: VFC<{ query: string, onStationSelected: (T: Station) => void, route: Route }> = ({ query, onStationSelected, route }) => {
     const [results, setResults] = useState<Station[]>([])
     const [searchText, setSearchText] = useState<string>();
     const [isLoading, setIsLoading] = useState(true);
     const [errorMsg, setErrorMsg] = useState<string>();
-    const getResults = async (q: string) => {
+    const [language, setLanguage] = useState<string>();
+    const getResults = async (q: string, lang?: string) => {
         try {
-            setResults(await RadioPlayer.search(q, 5));
+            setResults(await RadioPlayer.search(q, 5, lang));
         }
         catch (e: any) {
             setErrorMsg(e.message);
@@ -36,18 +46,29 @@ export const SearchResults: VFC<{ query: string, onStationSelected: (T: Station)
         setErrorMsg(undefined);
         setIsLoading(true);
         setSearchText(q);
-        getResults(q);
+        getResults(q, language);
+    }
+    const onLanguageChange = (lang?: string) => {
+        setLanguage(lang);
+        const q = searchText ?? query;
+        if (q) {
+            setErrorMsg(undefined);
+            setResults([]);
+            setIsLoading(true);
+            getResults(q, lang);
+        }
     }
     useEffect(() => {
         setErrorMsg(undefined);
         setResults([]);
         setIsLoading(true);
         setSearchText(query);
-        if (query) getResults(query);
+        if (query) getResults(query, language);
     }, [query])
     if (route.page === 'search_results') {
         return (
             <PanelSection title={`Search Results for ${searchText}`}>
+                <Dropdown rgOptions={LANGUAGE_OPTIONS} selectedOption={language} onChange={(e) => onLanguageChange(e.data)} />
                 {isLoading ? <Spinner /> : null}
                 {results.length === 0 && !isLoading && !errorMsg ? (
                     <div style={{ textAlign: "center" }}>

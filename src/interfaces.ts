@@ -26,34 +26,17 @@ export interface FeaturedStation {
     stations: Station[];
 }
 
-// API responses
-interface PlaylistAPIResponseArray {
-    callsign: string;
-    station_id: string;
-    band: string;
-    artist: string;
-    title: string;
-}
-export interface PlaylistAPIResponse {
-    success: boolean;
-    result: PlaylistAPIResponseArray[]
-}
-interface reco2APIResponseArray {
-    songartist: string;
-    songtitle: string;
-    playlist: PlaylistAPIResponseArray;
-}
-export interface reco2APIResponse {
-    success: boolean;
-    result: reco2APIResponseArray[];
-}
-export interface autocompleteAPIResponseArray {
-    keyword: string;
-    type: 'A' | 'T' | 'S';
-}
-export interface autocompleteAPIResponse {
-    success: boolean
-    result: autocompleteAPIResponseArray[]
+// radio-browser.info API response (https://api.radio-browser.info), scoped to Indian stations
+export interface RadioBrowserStation {
+    stationuuid: string;
+    name: string;
+    url: string;
+    url_resolved: string;
+    favicon: string;
+    tags: string;
+    state: string;
+    countrycode: string;
+    clickcount: number;
 }
 export type Pages = 'home' | 'player' | 'search_results';
 export interface Route {
