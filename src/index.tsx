@@ -55,7 +55,7 @@ const Content: VFC<{ serverAPI: ServerAPI }> = ({ serverAPI }) => {
 
 export default definePlugin((serverApi: ServerAPI) => {
   return {
-    title: <div className={staticClasses.Title}>RadiYo!</div>,
+    title: <div className={staticClasses.Title}>Desi Radio</div>,
     alwaysRender: true,
     content: <Content serverAPI={serverApi} />,
     icon: <MdOutlineRadio />,

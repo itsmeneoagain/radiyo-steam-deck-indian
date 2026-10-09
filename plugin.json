@@ -1,5 +1,5 @@
 {
-  "name": "RadiYo!",
+  "name": "Desi Radio",
   "author": "Isiah Lloyd",
   "flags": [],
   "publish": {
@@ -8,7 +8,7 @@
       "music",
       "radio"
     ],
-    "description": "Search and play music from internet radio stations while gaming",
+    "description": "Search and play Indian internet radio stations while gaming",
     "image": "https://raw.githubusercontent.com/isiah-lloyd/radiyo-steam-deck/main/images/screenshot.png"
   }
 }

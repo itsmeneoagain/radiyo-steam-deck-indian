@@ -1,11 +1,10 @@
-# RadiYo! For Steam Deck
-[<img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fplugins.deckbrew.xyz%2Fplugins&query=%24%5B%3F(%40.name%20%3D%3D%20'RadiYo!')%5D.downloads&suffix=%20installs&label=decky&color=3ea6a3)">](https://plugins.deckbrew.xyz/)
+# Desi Radio for Steam Deck
 
 ![](/images/player.jpg?raw=true)
 
-Quickly search and listen to internet radio stations from the Steam Deck's quick access menu.
+Quickly search and listen to Indian internet radio stations from the Steam Deck's quick access menu.
 
-See also, [RadiYo! for Discord](https://github.com/isiah-lloyd/RadiYo).
+A fork of [RadiYo! for Steam Deck](https://github.com/isiah-lloyd/radiyo-steam-deck) scoped to Indian stations, with a Hindi/Tamil/Telugu language filter. See also, [RadiYo! for Discord](https://github.com/isiah-lloyd/RadiYo).
 
 ## Features
 

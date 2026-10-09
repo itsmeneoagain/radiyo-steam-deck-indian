@@ -6,8 +6,8 @@ import urllib.parse
 import ssl
 import sys
 
-logging.basicConfig(filename="/tmp/radiyo.log",
-                    format='[RadiYo] %(asctime)s %(levelname)s %(message)s',
+logging.basicConfig(filename="/tmp/desi_radio.log",
+                    format='[DesiRadio] %(asctime)s %(levelname)s %(message)s',
                     filemode='w+',
                     force=True)
 logger=logging.getLogger()
@@ -105,5 +105,5 @@ class Plugin:
 
     # Asyncio-compatible long-running code, executed in a task when the plugin is loaded
     async def _main(self):
-        logger.info(msg='Started RadiYo Backend')
+        logger.info(msg='Started Desi Radio Backend')
         pass

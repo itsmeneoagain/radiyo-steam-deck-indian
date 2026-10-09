@@ -1,5 +1,5 @@
 import { Station } from "./interfaces";
-const KEY_PREFIX = 'radiyo_'
+const KEY_PREFIX = 'desiradio_'
 class Store {
     public recently_played: Station[] = [];
     public favorite_stations: Station[] = [];
